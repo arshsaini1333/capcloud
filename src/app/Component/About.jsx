@@ -1,0 +1,56 @@
+import Image from "next/image";
+
+export default function AboutSection({openForm}) {
+  return (
+    <section className="w-full py-20 px-6 md:px-16 bg-white" id="about">
+      <div className="
+        max-w-7xl mx-auto 
+        grid md:grid-cols-[1fr_1.4fr] 
+        gap-16 items-stretch
+      ">
+
+        {/* LEFT IMAGE (3:4 ratio, tall, same height as content) */}
+        <div className="rounded-3xl overflow-hidden shadow-xl flex h-3/4 my-auto">
+          <div className="relative w-full aspect-[3/4] p-5">
+            <Image
+              src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="About Capcloud"
+             fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div className="flex flex-col justify-center">
+
+          {/* Tag */}
+          <span className="inline-block mb-4 px-4 py-1 rounded-full text-sm font-medium bg-[#005AA7]/20 text-[#005AA7] w-fit">
+            About Us
+          </span>
+
+          {/* Heading */}
+          <h2 className="text-4xl font-bold text-gray-900 leading-tight mb-6">
+            Building Homes With Trust & Quality
+          </h2>
+
+          {/* Paragraph */}
+          <div className="text-gray-700 leading-relaxed text-lg space-y-5 mb-10">
+          Discover luxury 2BHK, 3BHK & 4BHK low-rise builder floors designed for families who want space, comfort and premium living at an affordable price.
+          <br /> <br />
+          Capcloud Developers brings you modern homes with beautiful interiors, a peaceful neighbourhood and strong connectivity to all major parts of Delhi & Gurgaon.
+          </div>
+
+          {/* CTA BUTTON */}
+          <button
+            className="px-10 py-3 rounded-lg text-white text-lg font-semibold shadow-md hover:shadow-lg transition w-fit cursor-pointer"
+            style={{ backgroundColor: "#005AA7" }}
+            onClick={openForm}
+          >
+            Explore Our Projects
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
