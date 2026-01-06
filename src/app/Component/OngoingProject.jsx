@@ -6,10 +6,7 @@ import { LocationOn } from "@mui/icons-material";
 import CallIcon from "@mui/icons-material/Call";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import ApartmentIcon from "@mui/icons-material/Apartment";
-import BedIcon from "@mui/icons-material/Bed";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
-import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
-import LandscapeIcon from "@mui/icons-material/Landscape";
 
 const properties = [
   {
@@ -20,19 +17,19 @@ const properties = [
     price: "₹1.5 Cr",
     description:
       "Krishna Suites is a spacious 4 BHK home in Chattarpur Enclave. It offers ample space, natural light, and a comfortable living experience in a prime South Delhi location.",
-      area: "175 Sq Yards",
-      type: "4 BHK"
+    area: "175 Sq Yards",
+    type: "4 BHK",
   },
   {
-    title: "MG-8 ",
+    title: "MG-8",
     location: "Chattarpur–Maidangarhi Road, South Delhi",
     image: "/herobg1.jpg",
     cars: "Residential • 3 BHK",
     price: "₹85 Lakh",
     description:
       "MG-8 Floors offers a well-planned 3 BHK home with strong road connectivity. A practical choice for families looking to settle in South Delhi.",
-      area: "125 Sq Yards",
-      type: "2, 3 BHK"
+    area: "125 Sq Yards",
+    type: "2, 3 BHK",
   },
   {
     title: "Breeze Homes",
@@ -42,8 +39,8 @@ const properties = [
     price: "₹75 Lakh",
     description:
       "Breeze Homes provides modern 2 BHK and 3 BHK options in a peaceful part of Chattarpur Enclave, ideal for comfortable everyday living.",
-      area: "125 Sq Yards",
-      type: "2, 3 BHK"
+    area: "125 Sq Yards",
+    type: "2, 3 BHK",
   },
 ];
 
@@ -54,6 +51,7 @@ export default function FeaturedPropertySlider({ openForm }) {
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % properties.length);
     }, 4000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -70,8 +68,8 @@ export default function FeaturedPropertySlider({ openForm }) {
           Current Premium Developments
         </h2>
       </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-16">
 
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-16">
         {/* LEFT — IMAGE SLIDER */}
         <div>
           <div className="relative w-full h-[420px] rounded-2xl overflow-hidden">
@@ -82,12 +80,6 @@ export default function FeaturedPropertySlider({ openForm }) {
               className="object-cover"
               priority
             />
-
-            {/* <div className="absolute bottom-4 left-4 bg-white px-5 py-3 rounded-lg">
-              <p className="text-sm text-gray-500">{current.location}</p>
-              <h4 className="font-semibold text-lg">{current.title}</h4>
-              <p className="text-sm text-gray-600">{current.cars}</p>
-            </div> */}
           </div>
 
           {/* Pagination */}
@@ -112,7 +104,12 @@ export default function FeaturedPropertySlider({ openForm }) {
                   active === i ? "border-[#005AA7]" : "border-transparent"
                 }`}
               >
-                <Image src={item.image} alt={item.title} fill className="object-cover" />
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
                 {active === i && (
                   <span className="absolute bottom-0 left-0 w-full h-1 bg-[#005AA7]" />
                 )}
@@ -141,11 +138,32 @@ export default function FeaturedPropertySlider({ openForm }) {
           </div>
 
           {/* Info Cards */}
-          <div className=" w-1/3 flex flex-col gap-4 mb-8 relative right-[30%]">
-            <InfoCard icon={<ApartmentIcon />} label="Home" value={current.type} className=""/>
-            <InfoCard icon={<CropSquareIcon />} label="Area" value={current.area} />
-            
-          </div>
+          <div
+  className="
+    w-full
+    flex flex-row gap-4 mb-8
+    justify-center
+    relative right-0
+
+    lg:w-1/3
+    lg:flex-col
+    lg:justify-start
+    lg:right-[30%]
+  "
+>
+  <InfoCard
+    icon={<ApartmentIcon />}
+    label="Home"
+    value={current.type}
+  />
+  <InfoCard
+    icon={<CropSquareIcon />}
+    label="Area"
+    value={current.area}
+  />
+</div>
+
+
 
           <p className="text-gray-600 leading-relaxed mb-8">
             {current.description}

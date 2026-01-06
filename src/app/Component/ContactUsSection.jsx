@@ -28,55 +28,52 @@ export default function ContactUsSection({ openForm }) {
     setLoading(true);
 
     const postData = new FormData();
-    postData.append('name', formData.name);
-    postData.append('email', formData.email);
-    postData.append('phone', formData.phone);
-    postData.append('msg', formData.message);
-   
+    postData.append("name", formData.name);
+    postData.append("email", formData.email);
+    postData.append("phone", formData.phone);
+    postData.append("msg", formData.message);
 
     fetch(SCRIPT_URL, {
-      method: 'POST',
+      method: "POST",
       body: postData,
-      mode: 'no-cors'
+      mode: "no-cors",
     })
       .then(() => {
-        
         setLoading(false);
-        setFormData({ name: '', email: '', phone: '', message: '' });
-        alert("done")
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        alert("done");
       })
       .catch(() => {
-        
         setLoading(false);
       });
   };
 
   return (
-    <section className="w-full py-24 px-4 bg-[#f5f8fa]" id="contact">
+    <section className="w-full py-16 sm:py-24 px-4 bg-[#f5f8fa]" id="contact">
       <div className="max-w-7xl mx-auto">
 
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-16 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-12 md:gap-16 items-center">
 
           {/* LEFT SIDE */}
-          <div className="flex flex-col justify-center h-full">
-            <span className="inline-flex w-fit mb-6 px-4 py-2 rounded-full bg-[#e6f0fb] text-[#005AA7] font-semibold text-sm">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <span className="inline-flex mb-6 px-4 py-2 rounded-full bg-[#e6f0fb] text-[#005AA7] font-semibold text-sm">
               🏆 Best Final Combo
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-bold mb-5">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
               Ready to Own Your Dream Home?
             </h2>
 
-            <p className="text-lg text-gray-600 mb-12 max-w-xl">
+            <p className="text-base sm:text-lg text-gray-600 mb-10 max-w-xl">
               Luxury 2, 3 & 4 BHK Homes in Prime Locations
             </p>
 
             {/* CTA BUTTONS */}
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-col sm:flex-row items-center md:items-start gap-4 w-full sm:w-auto">
               <a
                 href={`tel:${PHONE_NUMBER}`}
-                className="flex items-center gap-3 px-8 py-4 bg-black text-white rounded-lg text-lg font-semibold hover:opacity-90 transition"
+                className="flex justify-center items-center gap-3 px-8 py-4 bg-black text-white rounded-lg text-base sm:text-lg font-semibold hover:opacity-90 transition w-full sm:w-auto"
               >
                 <Call />
                 Call Now
@@ -85,7 +82,7 @@ export default function ContactUsSection({ openForm }) {
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
-                className="flex items-center gap-3 px-8 py-4 bg-[#25D366] text-white rounded-lg text-lg font-semibold hover:opacity-90 transition"
+                className="flex justify-center items-center gap-3 px-8 py-4 bg-[#25D366] text-white rounded-lg text-base sm:text-lg font-semibold hover:opacity-90 transition w-full sm:w-auto"
               >
                 <WhatsApp />
                 WhatsApp Now
@@ -93,7 +90,7 @@ export default function ContactUsSection({ openForm }) {
 
               <button
                 onClick={openForm}
-                className="flex items-center gap-3 px-8 py-4 bg-[#005AA7] text-white rounded-lg text-lg font-semibold hover:bg-[#004a8a] transition cursor-pointer"
+                className="flex justify-center items-center gap-3 px-8 py-4 bg-[#005AA7] text-white rounded-lg text-base sm:text-lg font-semibold hover:bg-[#004a8a] transition w-full sm:w-auto"
               >
                 <EventAvailable />
                 Book Site Visit
@@ -104,13 +101,13 @@ export default function ContactUsSection({ openForm }) {
           {/* RIGHT SIDE FORM */}
           <div
             id="contact-form"
-            className="flex flex-col justify-center h-full shadow-xl px-10 py-5 rounded-2xl mx-auto bg-white"
+            className="flex flex-col justify-center shadow-xl px-6 sm:px-10 py-6 rounded-2xl bg-white w-full max-w-md mx-auto"
           >
-            <h3 className="text-2xl font-bold mb-8 text-[#005AA7]">
+            <h3 className="text-xl sm:text-2xl font-bold mb-8 text-[#005AA7] text-center">
               Send Your Query To Our Team
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-5 max-w-md">
+            <form onSubmit={handleSubmit} className="space-y-5 w-full">
               <input
                 type="text"
                 name="name"
@@ -153,7 +150,7 @@ export default function ContactUsSection({ openForm }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#005AA7] text-white py-4 rounded-lg text-lg font-semibold hover:bg-[#004a8a] transition"
+                className="w-full bg-[#005AA7] text-white py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#004a8a] transition"
               >
                 {loading ? "Submitting..." : "Submit Enquiry"}
               </button>

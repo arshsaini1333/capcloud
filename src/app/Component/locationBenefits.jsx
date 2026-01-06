@@ -37,8 +37,9 @@ export default function LocationBenefits() {
   ];
 
   return (
-    <section className="w-full py-20 px-4 bg-[#f8fbff]">
+    <section className="w-full py-16 sm:py-20 px-4 bg-[#f8fbff]">
       <div className="max-w-7xl mx-auto">
+
         {/* Sub Heading */}
         <div className="flex justify-center mb-4">
           <span className="px-6 py-2 rounded-full text-sm font-medium text-[#005AA7] bg-[#e6f0fb]">
@@ -47,27 +48,41 @@ export default function LocationBenefits() {
         </div>
 
         {/* Main Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-14">
-        Perfectly Positioned for Everyday Convenience
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12">
+          Perfectly Positioned for Everyday Convenience
         </h2>
 
         {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-15 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
+
           {/* Left */}
-          <div className="space-y-5 w-3/4 ">
+          <div className="space-y-5 w-full max-w-xl mx-auto">
             {benefits.map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 p-5 rounded-lg bg-white shadow-sm border  transition hover:shadow-xl"
+                className="
+                  flex items-center justify-center md:justify-start
+                  gap-4
+                  p-5
+                  rounded-lg
+                  bg-white
+                  shadow-sm
+                  border
+                  transition
+                  hover:shadow-xl
+                  text-center md:text-left
+                "
               >
                 <div className="shrink-0">{item.icon}</div>
-                <p className="text-lg text-gray-800">{item.text}</p>
+                <p className="text-base sm:text-lg text-gray-800">
+                  {item.text}
+                </p>
               </div>
             ))}
           </div>
 
           {/* Right */}
-          <div className="w-full h-full rounded-xl overflow-hidden shadow">
+          <div className="w-full h-[260px] sm:h-[320px] md:h-[360px] rounded-xl overflow-hidden shadow">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28051.644301663193!2d77.1469303987544!3d28.495939161424804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1e41ca7de7c1%3A0x921a88ef7354b930!2sChhatarpur%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1765727217127!5m2!1sen!2sin"
               width="100%"
@@ -78,6 +93,7 @@ export default function LocationBenefits() {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
+
         </div>
       </div>
     </section>

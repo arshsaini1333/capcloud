@@ -60,7 +60,7 @@ export default function Navbar({openForm}) {
           {/* Close Button */}
           <button
             onClick={() => setOpen(false)}
-            className="text-3xl mb-4"
+            className="text-3xl mb-4 justify-end relative left-48"
             style={{ color: brand }}
           >
             ✕
