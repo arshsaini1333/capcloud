@@ -15,7 +15,7 @@ export default function AmenitiesSection({openForm}) {
     { image: "/a7.jpg", label: "Terrace Garden" },
     { image: "/a8.jpg", label: "Branded Bathroom Fittings" },
     { image: "/a9.jpg", label: "24x7 Water Supply" },
-    { image: "/a10.jpeg", label: "BSES Meter" },
+    { image: "/a10.jpeg", label: "Electricity Meter" },
   ];
 
   return (

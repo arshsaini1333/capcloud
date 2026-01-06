@@ -8,6 +8,8 @@ export default function EnquiryForm({ isOpen, closeForm }) {
     email: "",
   });
 
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbzlcp9ztREye5ETnWjxPwrVwAygTzWFX1H53x0G2zj-kNDuaOQysWaITmWK398YewZWFA/exec";
   const [loading, setLoading] = useState(false);
 
   if (!isOpen) return null;
@@ -22,38 +24,28 @@ export default function EnquiryForm({ isOpen, closeForm }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
+
     const postData = new FormData();
-    postData.append("api_key", "b8a83bb06c73df07865559018072fa35");
-    postData.append("sell_do[form][lead][name]", formData.name);
-    postData.append("sell_do[form][lead][email]", formData.email);
-    postData.append("sell_do[form][lead][phone]", formData.phone);
-    postData.append("sell_do[campaign][srd]", "693aace30d18514ae5751191");
-    postData.append("sell_do[form][content][note]", "Website Enquiry");
-  
-    try {
-      const res = await fetch("https://app.sell.do/api/leads/create", {
-        method: "POST",
-        body: postData,
+    postData.append('name', formData.name);
+    postData.append('email', formData.email);
+    postData.append('phone', formData.phone);
+   
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: postData,
+      mode: 'no-cors'
+    })
+      .then(() => {
+        
+        setLoading(false);
+        setFormData({ name: '', email: '', phone: ''});
+        alert("done")
+      })
+      .catch(() => {
+        
+        setLoading(false);
       });
-  
-      // Clear form fields
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-      });
-  
-      closeForm();
-  
-      // Redirect
-    //   window.location.href = "/thankyou";
-    } catch (error) {
-      console.log(error);
-      alert("Something went wrong. Try again.");
-    }
-  
-    setLoading(false);
   };
   
 

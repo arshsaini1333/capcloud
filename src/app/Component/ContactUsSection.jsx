@@ -3,9 +3,12 @@
 import { useState } from "react";
 import { Call, WhatsApp, EventAvailable } from "@mui/icons-material";
 
-export default function ContactUsSection({openForm}) {
-  const PHONE_NUMBER = "919999999999"; // replace
-  const WHATSAPP_NUMBER = "919999999999"; // replace
+export default function ContactUsSection({ openForm }) {
+  const PHONE_NUMBER = "918014700000";
+  const WHATSAPP_NUMBER = "918014700000";
+
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbzlcp9ztREye5ETnWjxPwrVwAygTzWFX1H53x0G2zj-kNDuaOQysWaITmWK398YewZWFA/exec";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -14,13 +17,38 @@ export default function ContactUsSection({openForm}) {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setLoading(true);
+
+    const postData = new FormData();
+    postData.append('name', formData.name);
+    postData.append('email', formData.email);
+    postData.append('phone', formData.phone);
+    postData.append('msg', formData.message);
+   
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: postData,
+      mode: 'no-cors'
+    })
+      .then(() => {
+        
+        setLoading(false);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        alert("done")
+      })
+      .catch(() => {
+        
+        setLoading(false);
+      });
   };
 
   return (
@@ -46,7 +74,6 @@ export default function ContactUsSection({openForm}) {
 
             {/* CTA BUTTONS */}
             <div className="flex flex-wrap gap-5">
-              {/* Call Now */}
               <a
                 href={`tel:${PHONE_NUMBER}`}
                 className="flex items-center gap-3 px-8 py-4 bg-black text-white rounded-lg text-lg font-semibold hover:opacity-90 transition"
@@ -55,7 +82,6 @@ export default function ContactUsSection({openForm}) {
                 Call Now
               </a>
 
-              {/* WhatsApp */}
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
@@ -65,7 +91,6 @@ export default function ContactUsSection({openForm}) {
                 WhatsApp Now
               </a>
 
-              {/* Book Site Visit */}
               <button
                 onClick={openForm}
                 className="flex items-center gap-3 px-8 py-4 bg-[#005AA7] text-white rounded-lg text-lg font-semibold hover:bg-[#004a8a] transition cursor-pointer"
@@ -76,10 +101,10 @@ export default function ContactUsSection({openForm}) {
             </div>
           </div>
 
-          {/* RIGHT SIDE */}
+          {/* RIGHT SIDE FORM */}
           <div
             id="contact-form"
-            className="flex flex-col justify-center h-full shadow-xl px-10 py-5 rounded-2xl mx-auto"
+            className="flex flex-col justify-center h-full shadow-xl px-10 py-5 rounded-2xl mx-auto bg-white"
           >
             <h3 className="text-2xl font-bold mb-8 text-[#005AA7]">
               Send Your Query To Our Team
@@ -127,9 +152,10 @@ export default function ContactUsSection({openForm}) {
 
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-[#005AA7] text-white py-4 rounded-lg text-lg font-semibold hover:bg-[#004a8a] transition"
               >
-                Submit Enquiry
+                {loading ? "Submitting..." : "Submit Enquiry"}
               </button>
             </form>
           </div>

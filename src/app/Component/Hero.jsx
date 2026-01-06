@@ -3,13 +3,14 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function SiteVisitHero() {
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
-    mobile: "",
+    phone: "",
     message: "",
     consent: false,
   });
+  const [loading, setLoading] = useState(false);
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -18,6 +19,9 @@ export default function SiteVisitHero() {
     "/herobg1.jpg",
     "/herobg2.jpg",
   ];
+
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbzlcp9ztREye5ETnWjxPwrVwAygTzWFX1H53x0G2zj-kNDuaOQysWaITmWK398YewZWFA/exec";
 
   // Auto Slider Effect
   useEffect(() => {
@@ -30,13 +34,36 @@ export default function SiteVisitHero() {
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
-    setForm({ ...form, [name]: type === "checkbox" ? checked : value });
+    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   }
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Form submitted!");
-  }
+    setLoading(true);
+
+    const postData = new FormData();
+    postData.append('name', formData.name);
+    postData.append('email', formData.email);
+    postData.append('phone', formData.phone);
+    postData.append('msg', formData.message);
+   
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: postData,
+      mode: 'no-cors'
+    })
+      .then(() => {
+        
+        setLoading(false);
+        setFormData({ name: '', email: '', phone: '', message: '', consent: false });
+        alert("done")
+      })
+      .catch(() => {
+        
+        setLoading(false);
+      });
+  };
 
   return (
     <section className="relative w-full h-[110vh] overflow-hidden top-10">
@@ -81,7 +108,7 @@ export default function SiteVisitHero() {
             type="text"
             placeholder="Full Name"
             name="name"
-            value={form.name}
+            value={formData.name}
             onChange={handleChange}
             required
             className="
@@ -96,7 +123,7 @@ export default function SiteVisitHero() {
             type="email"
             placeholder="Email Address"
             name="email"
-            value={form.email}
+            value={formData.email}
             onChange={handleChange}
             required
             className="
@@ -110,8 +137,8 @@ export default function SiteVisitHero() {
           <input
             type="tel"
             placeholder="Mobile Number"
-            name="mobile"
-            value={form.mobile}
+            name="phone"
+            value={formData.phone}
             onChange={handleChange}
             required
             className="
@@ -125,7 +152,7 @@ export default function SiteVisitHero() {
           <textarea
             placeholder="Your message or site visit preferences…"
             name="message"
-            value={form.message}
+            value={formData.message}
             onChange={handleChange}
             rows="1"
             className="
@@ -140,7 +167,7 @@ export default function SiteVisitHero() {
             <input
               type="checkbox"
               name="consent"
-              checked={form.consent}
+              checked={formData.consent}
               onChange={handleChange}
               required
               className="mt-1 h-4 w-4 text-[#005AA7] rounded"
@@ -159,7 +186,7 @@ export default function SiteVisitHero() {
             "
             style={{ backgroundColor: "#005AA7" }}
           >
-            Submit Request
+            {loading ? "Submitting..." : "Submit Request"}
           </button>
         </form>
       </div>

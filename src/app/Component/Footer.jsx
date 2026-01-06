@@ -62,12 +62,12 @@ export default function Footer() {
 
           <div className="flex items-start gap-3 mb-3 text-sm opacity-90">
             <LocationOn fontSize="small" />
-            <span>Sector 43, Gurgaon, Haryana, India</span>
+            <span>D-56, Second Floor <br /> Chattarpur Enclave <br />Delhi, 110074</span>
           </div>
 
           <div className="flex items-center gap-3 mb-3 text-sm opacity-90">
             <Call fontSize="small" />
-            <span>+91 98765 43210</span>
+            <span>+91 80147 00000</span>
           </div>
 
           <div className="flex items-center gap-3 mb-5 text-sm opacity-90">
