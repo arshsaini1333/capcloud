@@ -6,14 +6,14 @@ export default function AmenitiesSection({openForm}) {
   const brand = "#005AA7";
 
   const amenities = [
-    { image: "/a1.avif", label: "Branded Elevators" },
+    { image: "/images/img3.webp", label: "Branded Elevators" },
     { image: "/a2.avif", label: "CCTV Cameras" },
-    { image: "/a3.jpeg", label: "Wardrobes" },
-    { image: "/a4.jpg", label: "Modular Kitchen" },
+    { image: "/images/img11.webp", label: "Wardrobes" },
+    { image: "/images/img2.webp", label: "Modular Kitchen" },
     { image: "/a5.webp", label: "Dedicated Stilt Parking" },
     { image: "/a6.jpg", label: "Smart Digital Locks" },
     { image: "/a7.jpg", label: "Terrace Garden" },
-    { image: "/a8.jpg", label: "Branded Bathroom Fittings" },
+    { image: "/images/img1.webp", label: "Branded Bathroom Fittings" },
     { image: "/a9.jpg", label: "24x7 Water Supply" },
     { image: "/a10.jpeg", label: "Electricity Meter" },
   ];

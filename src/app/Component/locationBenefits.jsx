@@ -82,7 +82,7 @@ export default function LocationBenefits() {
           </div>
 
           {/* Right */}
-          <div className="w-full h-[260px] sm:h-[320px] md:h-[360px] rounded-xl overflow-hidden shadow">
+          <div className="w-full h-[33rem] rounded-xl overflow-hidden shadow">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28051.644301663193!2d77.1469303987544!3d28.495939161424804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1e41ca7de7c1%3A0x921a88ef7354b930!2sChhatarpur%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1765727217127!5m2!1sen!2sin"
               width="100%"

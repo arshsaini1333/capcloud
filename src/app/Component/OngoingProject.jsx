@@ -12,7 +12,7 @@ const properties = [
   {
     title: "Krishna Suites",
     location: "Chattarpur Enclave, South Delhi",
-    image: "/herobg.jpg",
+    image: "/images/img13.webp",
     cars: "Residential • 4 BHK",
     price: "₹1.5 Cr",
     description:
@@ -23,7 +23,7 @@ const properties = [
   {
     title: "MG-8",
     location: "Chattarpur–Maidangarhi Road, South Delhi",
-    image: "/herobg1.jpg",
+    image: "/images/img11.webp",
     cars: "Residential • 3 BHK",
     price: "₹85 Lakh",
     description:
@@ -34,7 +34,7 @@ const properties = [
   {
     title: "Breeze Homes",
     location: "Chattarpur Enclave, South Delhi",
-    image: "/herobg2.jpg",
+    image: "/images/img14.webp",
     cars: "Residential • 2 & 3 BHK",
     price: "₹75 Lakh",
     description:

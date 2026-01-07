@@ -14,7 +14,7 @@ export default function SiteVisitHero() {
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const slides = ["/herobg.jpg", "/herobg1.jpg", "/herobg2.jpg"];
+  const slides = ["/images/img5.webp", "/images/img8.webp", "/images/img9.webp"];
 
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbzlcp9ztREye5ETnWjxPwrVwAygTzWFX1H53x0G2zj-kNDuaOQysWaITmWK398YewZWFA/exec";

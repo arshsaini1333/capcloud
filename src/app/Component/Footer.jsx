@@ -81,7 +81,7 @@ export default function Footer() {
     <Facebook sx={{ color: "#005AA7", fontSize: 28 }} />
   </a>
 
-  <a href="#" target="_blank" className="hover:opacity-70">
+  <a href="https://www.instagram.com/capclouddevelopers?igsh=MWFjZXVlcHo2d2FyMQ==" target="_blank" className="hover:opacity-70">
     <Instagram sx={{ color: "#005AA7", fontSize: 28 }} />
   </a>
 

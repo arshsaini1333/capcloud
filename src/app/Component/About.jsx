@@ -18,7 +18,7 @@ export default function AboutSection({ openForm }) {
         <div className="rounded-3xl overflow-hidden shadow-xl w-full">
         <div className="relative w-full h-[280px] sm:h-[360px] md:h-[440px]">
   <Image
-    src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    src="/images/img10.webp"
     alt="About Capcloud"
     fill
     className="object-cover"
