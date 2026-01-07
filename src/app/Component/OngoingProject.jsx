@@ -179,7 +179,9 @@ export default function FeaturedPropertySlider({ openForm }) {
               Enquire Now
             </button>
 
-            <button className="flex items-center gap-2 px-6 py-3 rounded-lg border border-[#005AA7] text-[#005AA7] font-medium hover:bg-[#005AA7]/10">
+            <button className="flex items-center gap-2 px-6 py-3 rounded-lg border border-[#005AA7] text-[#005AA7] font-medium hover:bg-[#005AA7]/10" onClick={() => {
+    window.location.href = "tel:+918014700000";
+  }}>
               <CallIcon fontSize="small" />
               Get Call Back
             </button>

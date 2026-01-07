@@ -64,7 +64,7 @@ export default function SiteVisitHero() {
   };
 
   return (
-    <section className="relative w-full min-h-screen md:h-[110vh] overflow-hidden pt-24 md:pt-0">
+    <section className="relative w-full min-h-screen md:h-[110vh] overflow-hidden pt-24 md:pt-0" id="home">
 
       {/* BACKGROUND SLIDES */}
       <div className="absolute inset-0">
