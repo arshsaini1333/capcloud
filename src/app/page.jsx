@@ -12,6 +12,7 @@ import EnquiryForm from "./Component/ContactForm";
 import LocationBenefits from "./Component/locationBenefits";
 import ContactUsSection from "./Component/ContactUsSection";
 import FeaturedPropertiesSlider from "./Component/OngoingProject";
+import WhatsAppFloating from "./Component/WhatsaapFloating";
 import { useEffect } from "react";
 import { useState } from "react";
 export default function Home() {
@@ -42,6 +43,7 @@ export default function Home() {
     
     
     <LocationBenefits/>
+    <WhatsAppFloating/>
     
     <ContactUsSection openForm={openForm}/>
     <Footer/>

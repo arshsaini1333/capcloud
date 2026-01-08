@@ -57,10 +57,6 @@ export default function ContactUsSection({ openForm }) {
 
           {/* LEFT SIDE */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <span className="inline-flex mb-6 px-4 py-2 rounded-full bg-[#e6f0fb] text-[#005AA7] font-semibold text-sm">
-              🏆 Best Final Combo
-            </span>
-
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
               Ready to Own Your Dream Home?
             </h2>
@@ -90,10 +86,10 @@ export default function ContactUsSection({ openForm }) {
 
               <button
                 onClick={openForm}
-                className="flex justify-center items-center gap-3 px-8 py-4 bg-[#005AA7] text-white rounded-lg text-base sm:text-lg font-semibold hover:bg-[#004a8a] transition w-full sm:w-auto"
+                className="flex justify-center items-center gap-3 px-3 py-4 bg-[#005AA7] text-white rounded-lg text-base sm:text-lg font-semibold hover:bg-[#004a8a] transition w-full sm:w-auto"
               >
                 <EventAvailable />
-                Book Site Visit
+                Book A Free Site Visit
               </button>
             </div>
           </div>
@@ -104,7 +100,7 @@ export default function ContactUsSection({ openForm }) {
             className="flex flex-col justify-center shadow-xl px-6 sm:px-10 py-6 rounded-2xl bg-white w-full max-w-md mx-auto"
           >
             <h3 className="text-xl sm:text-2xl font-bold mb-8 text-[#005AA7] text-center">
-              Send Your Query To Our Team
+              Talk To Our Team Now
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5 w-full">
@@ -152,7 +148,7 @@ export default function ContactUsSection({ openForm }) {
                 disabled={loading}
                 className="w-full bg-[#005AA7] text-white py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#004a8a] transition"
               >
-                {loading ? "Submitting..." : "Submit Enquiry"}
+                {loading ? "Submitting..." : "Submit"}
               </button>
             </form>
           </div>
