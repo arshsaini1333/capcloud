@@ -87,14 +87,14 @@ export default function SiteVisitHero() {
       </div>
 
       {/* FORM WRAPPER */}
-      <div className="relative z-10 flex justify-center md:justify-end items-center mt-10 h-screen px-4 md:px-10">
+      <div className="relative z-10 flex justify-center md:justify-end items-center mt-15 h-screen px-4 md:px-10">
 
         {/* GLASS FORM */}
         <div
           className="
             bg-white/30 backdrop-blur-xl
             shadow-2xl rounded-2xl
-            p-6 sm:p-8
+            px-6 sm:p-8 py-4
             w-full max-w-sm sm:max-w-md
             border border-white/20
           "
@@ -155,7 +155,7 @@ export default function SiteVisitHero() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              rows="2"
+              rows="1"
               className="
                 w-full px-4 py-3 rounded-xl
                 bg-white/40 backdrop-blur-md
@@ -187,7 +187,7 @@ export default function SiteVisitHero() {
               "
               style={{ backgroundColor: "#005AA7" }}
             >
-              {loading ? "Submitting..." : "Submit Request"}
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </form>
         </div>
