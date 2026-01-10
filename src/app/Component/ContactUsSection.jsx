@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { Call, WhatsApp, EventAvailable } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
 
 export default function ContactUsSection({ openForm }) {
   const PHONE_NUMBER = "918014700000";
   const WHATSAPP_NUMBER = "918014700000";
+  const router = useRouter();
 
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbzlcp9ztREye5ETnWjxPwrVwAygTzWFX1H53x0G2zj-kNDuaOQysWaITmWK398YewZWFA/exec";
@@ -41,7 +43,7 @@ export default function ContactUsSection({ openForm }) {
       .then(() => {
         setLoading(false);
         setFormData({ name: "", email: "", phone: "", message: "" });
-        alert("done");
+        router.push("/thankyou");
       })
       .catch(() => {
         setLoading(false);

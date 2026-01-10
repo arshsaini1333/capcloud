@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SiteVisitHero() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ export default function SiteVisitHero() {
     message: "",
     consent: false,
   });
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -56,7 +59,7 @@ export default function SiteVisitHero() {
           message: "",
           consent: false,
         });
-        alert("done");
+        router.push("/thankyou");
       })
       .catch(() => {
         setLoading(false);

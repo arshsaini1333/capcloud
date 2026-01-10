@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function EnquiryForm({ isOpen, closeForm }) {
   const [formData, setFormData] = useState({
@@ -7,6 +8,8 @@ export default function EnquiryForm({ isOpen, closeForm }) {
     phone: "",
     email: "",
   });
+  const router = useRouter();
+
 
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbzlcp9ztREye5ETnWjxPwrVwAygTzWFX1H53x0G2zj-kNDuaOQysWaITmWK398YewZWFA/exec";
@@ -40,7 +43,7 @@ export default function EnquiryForm({ isOpen, closeForm }) {
         
         setLoading(false);
         setFormData({ name: '', email: '', phone: ''});
-        alert("done")
+        router.push("/thankyou");
       })
       .catch(() => {
         
